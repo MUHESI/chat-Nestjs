@@ -1,0 +1,14 @@
+<h2>HELLO</h2>
+<ul></ul>
+
+<script type="text/javascript">
+  const eventSource = new EventSource('/api/sse');
+  const eventList = document.querySelector('ul');
+
+  eventSource.onmessage = (event) => {
+    const li = document.createElement('li');
+
+    li.textContent = event.data;
+    eventList.appendChild(li);
+  };
+</script>
